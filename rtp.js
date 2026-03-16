@@ -188,7 +188,7 @@ const [_0x356825, _0x66ac31] = this[_0x29ff3e(0x186)][_0x29ff3e(0x157)]();
             if (isPGSoft) {
                 turboStatus = Math.random() > 0.5 ? ' (Turbo ON)' : ' (Turbo OFF)';
             }
-        return isPragmatic ? _0x44a715(0x16f) + (_0x49a0fe + 0x1) + ':</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<td>Spin\x20' + _0x106747 + '\x20' + _0x22e2b4 + turboStatus + _0x44a715(0x1b3) + _0x1ae872 + '\x20' + _0x3a4f4e + '\x20' + _0x44a2b3 + _0x44a715(0x1b4) : _0x44a715(0x16f) + (_0x49a0fe + 0x1) + _0x44a715(0x175) + _0x106747 + '\x20' + _0x22e2b4 + '</td>\x0a\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20';
+        return (isPragmatic || isPGSoft) ? _0x44a715(0x16f) + (_0x49a0fe + 0x1) + ':</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<td>Spin\x20' + _0x106747 + '\x20' + _0x22e2b4 + turboStatus + _0x44a715(0x1b3) + _0x1ae872 + '\x20' + _0x3a4f4e + '\x20' + _0x44a2b3 + _0x44a715(0x1b4) : _0x44a715(0x16f) + (_0x49a0fe + 0x1) + _0x44a715(0x175) + _0x106747 + '\x20' + _0x22e2b4 + '</td>\x0a\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20';
     }
 }
 class DesktopPola extends Pola {
