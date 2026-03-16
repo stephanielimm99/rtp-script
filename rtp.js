@@ -180,9 +180,15 @@ const [_0x356825, _0x66ac31] = this[_0x29ff3e(0x186)][_0x29ff3e(0x157)]();
                 _0x22e2b4 = autoList[index];
             }
 
-            let _0x1ae872 = _0x43c6ef ? '✅' : '❌';
-            let _0x3a4f4e = _0x43c6ef ? '❌' : '✅';
-            let _0x44a2b3 = _0x2f1812 ? '✅' : '❌';
+            let _0x1ae872 = '';
+            let _0x3a4f4e = '';
+            let _0x44a2b3 = '';
+
+            if (!isPGSoft) {
+                _0x1ae872 = _0x43c6ef ? '✅' : '❌';
+                _0x3a4f4e = _0x43c6ef ? '❌' : '✅';
+                _0x44a2b3 = _0x2f1812 ? '✅' : '❌';
+            }
             let turboStatus = '';
 
             if (isPGSoft) {
