@@ -79,9 +79,9 @@ class Generator {
         return parseFloat(value.toFixed(1)); 
     } ['getPola']() {
         const _0x3b6531 = _0x441e31,
-            _0x8ce10 = this[_0x3b6531(0x19d)](0x174876e800, 0xe8d4a50fff),
-            _0x16a112 = String(_0x8ce10)[_0x3b6531(0x1ad)](/.{4}/g);
-        return _0x16a112[_0x3b6531(0x18e)](Pola[_0x3b6531(0x161)]);
+        _0x8ce10 = this[_0x3b6531(0x19d)](0x174876e800, 0xe8d4a50fff),
+        _0x16a112 = String(_0x8ce10).match(/.{4}/g) || [];
+        return _0x16a112.map(Pola[_0x3b6531(0x161)]);
     } [_0x441e31(0x157)]() {
         const _0x3bc589 = _0x441e31,
             _0x33b5c2 = this[_0x3bc589(0x19d)](0x0, 0x120);
@@ -124,7 +124,13 @@ class Pola extends RTP {
     constructor(_0xfd39c7, _0x43a41a, _0x5be365) {
         const _0x29ff3e = _0x441e31;
         super(_0xfd39c7);
-        const [_0x46aa59, _0x325b57, _0x594658] = this[_0x29ff3e(0x186)]['getPola'](), [_0x356825, _0x66ac31] = this[_0x29ff3e(0x186)][_0x29ff3e(0x157)]();
+        const pola = this[_0x29ff3e(0x186)]['getPola']();
+
+        const _0x46aa59 = pola[0] || '';
+        const _0x325b57 = pola[1] || '';
+        const _0x594658 = pola[2] || '';
+
+const [_0x356825, _0x66ac31] = this[_0x29ff3e(0x186)][_0x29ff3e(0x157)]();
         this[_0x29ff3e(0x1be)] = '\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22pola-title\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div>Pakai\x20Pola\x20Khusus</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div>' + Pola[_0x29ff3e(0x165)] + _0x29ff3e(0x182) + _0x43a41a + _0x29ff3e(0x17b) + _0xfd39c7 + '\x22>\x0a\x20\x20\x20\x20\x20\x20<dl\x20class=\x22pola-desc\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<dt>Provider</dt>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<dd>' + _0x5be365 + _0x29ff3e(0x17c) + _0xfd39c7 + _0x29ff3e(0x1ca) + this[_0x29ff3e(0x17f)] + '%</dd>\x0a\x20\x20\x20\x20\x20\x20</dl>\x0a\x20\x20\x20\x20\x20\x20<table\x20class=\x22pola-table\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<tbody>' + _0x46aa59 + _0x325b57 + _0x594658 + '</tbody>\x0a\x20\x20\x20\x20\x20\x20</table>\x0a\x20\x20\x20\x20';
     }
     static[_0x441e31(0x154)](_0x4efbda) {
@@ -144,11 +150,16 @@ class Pola extends RTP {
             _0xa2a966 = Pola[_0x44a715(0x162)](_0x39247d),
             _0x43c6ef = Pola[_0x44a715(0x162)](_0x1e2911),
             _0x2f1812 = Pola[_0x44a715(0x162)](_0x11375f),
-            _0x106747 = _0xa2a966 ? _0x44a715(0x19b) : _0x44a715(0x16b),
-            _0x22e2b4 = _0xa2a966 ? _0x4782c0 : AUTO_VALUES[Pola[_0x44a715(0x1bd)](_0x4782c0)],
-            _0x1ae872 = _0x43c6ef ? '✅' : '❌',
-            _0x3a4f4e = _0x43c6ef ? '❌' : '✅',
-            _0x44a2b3 = _0x2f1812 ? '✅' : '❌';
+            _0x106747 = _0xa2a966 ? _0x44a715(0x19b) : _0x44a715(0x16b);
+            let index = Math.abs(Pola[_0x44a715(0x1bd)](_0x4782c0)) % AUTO_VALUES.length;
+
+            let _0x22e2b4 = _0xa2a966
+            ? _0x4782c0
+            : AUTO_VALUES[index];
+
+            let _0x1ae872 = _0x43c6ef ? '✅' : '❌';
+            let _0x3a4f4e = _0x43c6ef ? '❌' : '✅';
+            let _0x44a2b3 = _0x2f1812 ? '✅' : '❌';
         return isPragmatic ? _0x44a715(0x16f) + (_0x49a0fe + 0x1) + ':</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<td>Spin\x20' + _0x106747 + '\x20' + _0x22e2b4 + _0x44a715(0x1b3) + _0x1ae872 + '\x20' + _0x3a4f4e + '\x20' + _0x44a2b3 + _0x44a715(0x1b4) : _0x44a715(0x16f) + (_0x49a0fe + 0x1) + _0x44a715(0x175) + _0x106747 + '\x20' + _0x22e2b4 + '</td>\x0a\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20';
     }
 }
@@ -280,25 +291,10 @@ if (isMobile) {
         }
     }
 }
-const wordsToCheck = [_0x441e31(0x15b), _0x441e31(0x1cc)];
-let found = ![];
-for (const word of wordsToCheck) {
-    if (document[_0x441e31(0x173)][_0x441e31(0x17e)]()[_0x441e31(0x16e)](word)) {
-        found = !![];
-        break;
-    }
-}
-
 function _0x54c1() {
     const _0x147cec = ['\x0a\x20\x20.pola-title\x20{\x0a\x20\x20\x20\x20background-color:\x20', '</dd>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<dt>RTP</dt>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<dd>', 'each', 'sv388', 'POLA\x20MAIN', '1980KAczvY', 'normalizeHours', 'calculateTime', 'data-src', 'input[type=\x27hidden\x27]', 'getTimeRange', '\x0a\x20\x20.rtp-label\x20{\x0a\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20justify-content:\x20space-between;\x0a\x20\x20\x20\x20font-size:\x2012px;\x0a\x20\x20}\x0a\x20\x20.rtp-bar\x20{\x0a\x20\x20\x20\x20background-color:\x20#fff;\x0a\x20\x20\x20\x20border-radius:\x202.5px;\x0a\x20\x20}\x0a\x20\x20.rtp-bar\x20>\x20div\x20{\x0a\x20\x20\x20\x20height:\x205px;\x0a\x20\x20\x20\x20border-radius:\x202.5px;\x0a\x20\x20}', 'classList', '989711kgZKMv', 'vsb', 'mediumseagreen', 'toString', 'goldenrod', 'floor', 'href', 'interpretPola', 'isOdd', '.game-title', 'createElement', 'datestr', 'getRtp', 'img', 'crimson', 'numeric', 'appendTo', 'Auto', '.slider-content\x20.active\x20h5', 'nifty', 'includes', '\x0a\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<td>Step\x20', '128jrlaRp', 'desktop', '9990576qgJHnS', 'title', 'button', ':</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<td>Spin\x20', 'long', 'innerHTML', '\x0a\x20\x20\x20\x20\x20\x20.game-title\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20height:\x2035px\x20!important;\x0a\x20\x20\x20\x20\x20\x20\x20\x20padding:\x205px\x2010px\x20!important;\x0a\x20\x20\x20\x20\x20\x20\x20\x20overflow:\x20hidden;\x0a\x20\x20\x20\x20\x20\x20\x20\x20text-overflow:\x20ellipsis;\x0a\x20\x20\x20\x20\x20\x20\x20\x20white-space:\x20nowrap;\x0a\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20.game-item\x20>\x20img\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20margin-bottom:\x2015px;\x0a\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20.rtp-label\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20background-color:\x20#171613;\x0a\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20.rtp-label\x20>\x20div\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20padding:\x200\x2010px;\x0a\x20\x20\x20\x20\x20\x20}', '', 'charCodeAt', '\x22\x20alt=\x22', '</dd>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<dt>Nama\x20Game</dt>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<dd>', 'first', 'toLowerCase', 'rtp', '\x0a\x20\x20\x20\x20\x20\x20.game-box\x20>\x20h5\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20margin-bottom:\x205px\x20!important;\x0a\x20\x20\x20\x20\x20\x20\x20\x20padding:\x200\x205px;\x0a\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20.rtp-label\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20margin:\x200\x205px;\x0a\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20.rtp-bar\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20margin:\x200\x205px\x2010px;\x0a\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20.daily-wins-tag\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20bottom:\x2055px\x20!important;\x0a\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20#gamelinksModal-1\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20top:\x2040%\x20!important;\x0a\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20#pola-content\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20color:\x20', 'content', '</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20<img\x20src=\x22', '490664PdmsLK', 'prepareModal', 'css', 'rng', 'find', '16072dbqesz', '\x0a\x20\x20\x20\x20.btn-refresh-wallet\x20{\x0a\x20\x20\x20\x20\x20\x20width:\x2028.88px;\x0a\x20\x20\x20\x20\x20\x20text-align:\x20center\x20!important;\x0a\x20\x20\x20\x20}', '70px\x200\x2010px', 'target', 'xorshift', '/slots/', 'map', 'location', 'replace', 'round', 'text', 'contains', 'stopImmediatePropagation', 'normalizeText', 'rtp-bar', '.app-wrapper\x20ul', 'show', '.hot-games\x20.game-item', 'ready', 'Manual', '#gamelinksModal-1', 'nextInt', '45951270nSSFjb', '<button></button>', '25494fNIXCD', 'querySelector', 'empty', 'pathname', 'now', 'parentElement', 'body', 'toLocaleDateString', 'padnum', 'timestrf', '\x0a\x20\x20\x20\x20\x20\x20.rtp-label\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20background-color:\x20#000000cc;\x0a\x20\x20\x20\x20\x20\x20\x20\x20padding:\x200\x205px;\x0a\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20.game-box:hover\x20.rtp-label\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20background-color:\x20#ffffffcc;\x0a\x20\x20\x20\x20\x20\x20\x20\x20color:\x20#000;\x0a\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20.rtp-button\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20background-color:\x20#000;\x0a\x20\x20\x20\x20\x20\x20\x20\x20border:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x204px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20width:\x20100%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20position:\x20relative;\x0a\x20\x20\x20\x20\x20\x20\x20\x20top:\x20-100%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20all\x20.3s\x20ease-in-out;\x0a\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20.game-box:hover\x20.rtp-button\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20top:\x2055%;\x0a\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20.pola-title\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x205px\x205px\x200\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2010px\x200;\x0a\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20.pola-desc\x20>\x20dd\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20font-weight:\x20700;\x0a\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20.pola-table\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20font-weight:\x20700;\x0a\x20\x20\x20\x20\x20\x20}', '.game-box', '/slots/pragmatic-play', 'match', '#gamelinksModal-1\x20.md-body', 'toUpperCase', 'handleClick', '.game-overlay', 'getAttribute', '</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<td>', '</td>\x0a\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20', 'indexOf', '300517CPzPLw', '11OtdAaj', '.slider-content\x20.active\x20div', '<div></div>', 'isAuth', 'innerText', 'isConfirmed', 'lerp1to5', 'html', 'seed', 'datetime', '#1c1c1c', '&nbsp;', 'btn\x20btn-block\x20btn-primary', 'append', 'RTP', 'click', '21ROOcVi', 'replaceAll'];
     _0x54c1 = function() {
         return _0x147cec;
     };
     return _0x54c1();
-}
-if (!found) {
-    async function delayedRedirect() {
-        const _0x19881e = _0x441e31;
-        await new Promise(_0x30d941 => setTimeout(_0x30d941, 0x3a98)), window[_0x19881e(0x18f)][_0x19881e(0x190)](_0x19881e(0x179));
-    }
 }
