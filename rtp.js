@@ -21,7 +21,7 @@ const _0x441e31 = _0x44c1;
     }
 }(_0x54c1, 0xf2526));
 const JAM_PANAS_DURATION = 0x3,
-    AUTO_VALUES = [0xa, 0x14, 0x1e, 0x32, 0x46, 0x64],
+    AUTO_VALUES = isPGSoft ? [10,30,50,80] : [10,20,30,50,70,100],
     POLA_BUTTON_LABEL = _0x441e31(0x1cd),
     POLA_CONFIRM_LABEL = 'Main\x20Sekarang',
     POLA_CANCEL_LABEL = 'Tutup',
@@ -47,6 +47,7 @@ const JAM_PANAS_DURATION = 0x3,
     isMobile = document['body'][_0x441e31(0x159)][_0x441e31(0x193)]('mobile'),
     isDesktop = document[_0x441e31(0x1a6)]['classList'][_0x441e31(0x193)](_0x441e31(0x171)),
     isPragmatic = window[_0x441e31(0x18f)]['pathname']['includes'](_0x441e31(0x1ac)),
+    isPGSoft = window.location.pathname.includes('pg-soft'),
     RTP_CSS = _0x441e31(0x158),
     POLA_CSS = _0x441e31(0x1c9) + ACCENT_COLOR + ';\x0a\x20\x20\x20\x20color:\x20#fff;\x0a\x20\x20\x20\x20position:\x20absolute;\x0a\x20\x20\x20\x20top:\x200;\x0a\x20\x20\x20\x20left:\x200;\x0a\x20\x20\x20\x20right:\x200;\x0a\x20\x20}\x0a\x20\x20.pola-desc\x20{\x0a\x20\x20\x20\x20display:\x20grid;\x0a\x20\x20\x20\x20grid-template-columns:\x20min-content\x201fr;\x0a\x20\x20\x20\x20margin:\x2010px\x200;\x0a\x20\x20\x20\x20font-size:\x2014px;\x0a\x20\x20}\x0a\x20\x20.pola-desc\x20>\x20dt\x20{\x0a\x20\x20\x20\x20text-align:\x20left;\x0a\x20\x20\x20\x20white-space:\x20nowrap;\x0a\x20\x20}\x0a\x20\x20.pola-desc\x20>\x20dd\x20{\x0a\x20\x20\x20\x20text-align:\x20right;\x0a\x20\x20}\x0a\x20\x20.pola-table\x20{\x0a\x20\x20\x20\x20width:\x20100%;\x0a\x20\x20\x20\x20border:\x201px\x20solid\x20#000;\x0a\x20\x20\x20\x20font-size:\x2014px;\x0a\x20\x20}\x0a\x20\x20.pola-table\x20td\x20{\x0a\x20\x20\x20\x20padding-bottom:\x205px;\x0a\x20\x20}\x0a\x20\x20.pola-table\x20tr:first-child\x20>\x20td\x20{\x0a\x20\x20\x20\x20padding-top:\x205px;\x0a\x20\x20}';
 
