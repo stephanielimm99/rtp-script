@@ -22,7 +22,7 @@ const _0x441e31 = _0x44c1;
 }(_0x54c1, 0xf2526));
 const JAM_PANAS_DURATION = 0x3;
 
-const isPGSoft = window.location.pathname.includes('pg-soft');
+const isPGSoft = window.location.pathname.includes('pgsoft');
 
 const AUTO_VALUES = isPGSoft
     ? [10,30,50,80]
