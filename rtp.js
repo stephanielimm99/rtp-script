@@ -80,7 +80,7 @@ class Generator {
     } [_0x441e31(0x18c)](_0x5797ff) {
         return _0x5797ff ^= _0x5797ff << 0xd, _0x5797ff ^= _0x5797ff >> 0x11, _0x5797ff ^= _0x5797ff << 0x5;
     } ['getRtp']() {
-        const value = Math.random() * (99 - 96) + 96;
+        const value = Math.random() * (99 - 50) + 50;
         return parseFloat(value.toFixed(1)); 
     } ['getPola']() {
         const _0x3b6531 = _0x441e31,
