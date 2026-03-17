@@ -102,7 +102,7 @@ class RTP {
         this['rng'] = new Generator(_0x2f0a2b), this[_0x5eb5c4(0x17f)] = this[_0x5eb5c4(0x186)][_0x5eb5c4(0x166)]();
     } [_0x441e31(0x1c4)](_0x33c80d) {
         const _0xde9263 = _0x441e31,
-            _0x45e472 = this[_0xde9263(0x17f)] > 0x62 ? GOOD_COLOR : this[_0xde9263(0x17f)] > 0x61 ? MID_COLOR : BAD_COLOR,
+            _0x45e472 = this[_0xde9263(0x17f)] >= 80 ? GOOD_COLOR : this[_0xde9263(0x17f)] >= 65 ? MID_COLOR : BAD_COLOR,
             _0xb0d660 = {
                 'background-color': _0x45e472,
                 'width': this[_0xde9263(0x17f)] + '%'
@@ -129,7 +129,11 @@ class Pola extends RTP {
     constructor(_0xfd39c7, _0x43a41a, _0x5be365) {
         const _0x29ff3e = _0x441e31;
         super(_0xfd39c7);
-        const pola = this[_0x29ff3e(0x186)]['getPola']();
+        let pola = this[_0x29ff3e(0x186)]['getPola']();
+
+        while (pola.length < 3) {
+            pola.push(Pola['interpretPola'](Math.random().toString().slice(2,6), pola.length));
+        }
 
         const _0x46aa59 = pola[0] || '';
         const _0x325b57 = pola[1] || '';
